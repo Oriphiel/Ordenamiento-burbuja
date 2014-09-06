@@ -1,0 +1,53 @@
+/*  Esto es unicamente con fines de prueba de la pagina  */
+
+#include <iostream>
+#include <conio.h>
+#include <windows.h>
+#include <stdio.h>
+using namespace std;
+     
+void gotoxy(int x, int y) 
+{ 
+COORD coord; 
+coord.X = x; coord.Y = y; 
+HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE); 
+SetConsoleCursorPosition(hStdOut, coord); 
+} 
+int main(){
+	int array[6],x=0,i=0,temp;
+    for (x=1;x<=5;x++)    	{
+    	cout << "Inserta el valor " << x <<endl;
+    	cin >> array[x];
+    	}
+    for (x=1;x<=5;x++){
+    	for (i=1;i<=4;i++){	
+    		if(array[i] < array[i+1]){
+    			temp = array[i+1];
+    			array[i+1] = array[i];
+    			array[i] = temp;
+    		}
+   		}	
+   	}	
+	system("cls");	
+	gotoxy (30,8);cout<<"El numero mayor es "<<array[1];
+	gotoxy (29,10);cout<<"El numero siguiente es "<<array[2];
+	gotoxy (28,12);cout<<"El numero intermedio es "<<array[3];
+	gotoxy (29,14);cout<<"El numero siguiente es "<<array[4];
+	gotoxy (30,16);cout<<"El numero menor es "<<array[5];	
+	
+	for (i=20;i<=60;i++){
+		gotoxy (i,5);cout<<"X"<<endl;
+		gotoxy (i,6);cout<<"X"<<endl;
+		gotoxy (i,18);cout<<"X"<<endl;
+		gotoxy (i,19);cout<<"X"<<endl;	
+	}
+	for (i=7;i<=17;i++){
+		gotoxy (20,i);cout<<"X"<<endl;
+		gotoxy (19,i);cout<<"X"<<endl;
+		gotoxy (61,i);cout<<"X"<<endl;
+		gotoxy (60,i);cout<<"X"<<endl;	
+		}
+getch();
+return 0;
+}
+     
